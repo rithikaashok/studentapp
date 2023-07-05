@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  reactaspcrudbackend:
+    image: ${DOCKER_REGISTRY-}reactaspcrudbackend
+    build:
+      context: .
+      dockerfile: ReactAspCRUDBackend\Dockerfile
