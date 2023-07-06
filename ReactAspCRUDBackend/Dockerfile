@@ -10,7 +10,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ReactAspCRUDBackend/ReactAspCRUDBackend.csproj", "ReactAspCRUDBackend/"]
+COPY ["ReactAspCRUDBackend/*.csproj", "ReactAspCRUDBackend/"]
 RUN dotnet restore "ReactAspCRUDBackend/ReactAspCRUDBackend.csproj"
 COPY . .
 WORKDIR "/src/ReactAspCRUDBackend"
