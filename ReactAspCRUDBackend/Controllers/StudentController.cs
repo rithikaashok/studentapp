@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using ReactAspCrudBackend.Models;
 using ReactAspCRUDBackend.Models;
 
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
+using global::Azure.Storage.Blobs;
+using global::Azure.Storage.Blobs.Models;
 using System.IO;
 using System.Threading.Tasks;
 using System.Web;
