@@ -75,7 +75,7 @@ namespace ReactAspCrud.Controllers
      
     }
 
-  /*  //My code
+    //My code
     [Route("api/image")]
     [ApiController]
     public class ImageApiController : ControllerBase
@@ -144,7 +144,7 @@ namespace ReactAspCrud.Controllers
 
 
 
-    //My code*/
+    //My code
 
 
 }
