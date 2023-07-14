@@ -19,6 +19,13 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Restore NuGet Packages'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+
+- task: DotNetCoreCLI@2
   displayName: Build
   inputs: 
     command: build
@@ -35,4 +42,4 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs: 
     targetPath: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'sql-artifact'
+    artifactName: 'drop'
