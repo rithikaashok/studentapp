@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using ReactAspCrudBackend.Models;
 using ReactAspCRUDBackend.Models;
 
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
+//using Azure.Storage.Blobs;
+//using Azure.Storage.Blobs.Models;
 using System.IO;
 using System.Threading.Tasks;
 using System.Web;
@@ -74,7 +74,7 @@ namespace ReactAspCrud.Controllers
 
      
     }
-
+/*
     //My code
     [Route("api/image")]
     [ApiController]
@@ -145,6 +145,6 @@ namespace ReactAspCrud.Controllers
 
 
     //My code
-
+*/
 
 }
