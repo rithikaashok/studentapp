@@ -38,11 +38,11 @@ steps:
     artifactName: 'drop'
 
 - task: Docker@2
+  displayName: buildAndPush
   inputs:
-    containerRegistry: 'myconn'
-    repository: 'studimage'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    containerRegistry: myconn
+    repository: myrepo
+    buildContext: '$(System.DefaultWorkingDirectory)'
     tags: |
-      $(Build.BuildId)
-      latest
+     $(Build.BuildId)
+     latest
