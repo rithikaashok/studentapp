@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-webapi-deployment
+spec:
+  replicas: 3   # Adjust the number of replicas as needed for your application's scaling requirements
+  selector:
+    matchLabels:
+      app: my-webapi
+  template:
+    metadata:
+      labels:
+        app: my-webapi
+    spec:
+      containers:
+        - name: my-webapi
+          image: studentregimages.azurecr.io/myrepo:latest  # Replace this with your actual Docker image and tag
+          ports:
+            - containerPort: 80       # Make sure this matches the port your .NET Web API is listening on
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-webapi-service
+spec:
+  selector:
+    app: my-webapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
