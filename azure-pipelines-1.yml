@@ -32,6 +32,11 @@ steps:
    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
    zipAfterPublish: True
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(agent.builddirectory)'
+    Contents: '**/stdaks.yml'
+    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishPipelineArtifact@1
   inputs: 
     targetPath: '$(Build.ArtifactStagingDirectory)'
