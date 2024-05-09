@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-webapi
-          image: studentregimages.azurecr.io/myrepo:latest  # Replace this with your actual Docker image and tag
+          image: studentreg.azurecr.io/myrepo:latest  # Replace this with your actual Docker image and tag
           imagePullPolicy: Always
           ports:
             - containerPort: 80       # Make sure this matches the port your .NET Web API is listening on
