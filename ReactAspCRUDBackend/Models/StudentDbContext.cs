@@ -12,7 +12,7 @@ namespace ReactAspCrudBackend.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-         optionsBuilder.UseSqlServer("Data Source=studentserver1.database.windows.net; Initial Catalog=studentdb; User Id=capstone; password=Kishore@123; TrustServerCertificate= True");
+         optionsBuilder.UseSqlServer("Data Source=prostudentserver.database.windows.net; Initial Catalog=StudentproDB ; User Id=prostudent; password=Charlie*6721; TrustServerCertificate= True");
         }
     }
 }
