@@ -1,8 +1,19 @@
 version: '3.4'
 
+services:version: '3.4'
+
 services:
   reactaspcrudbackend:
     image: ${DOCKER_REGISTRY-}reactaspcrudbackend
     build:
       context: .
       dockerfile: ReactAspCRUDBackend\Dockerfile
+    ports:
+      - "80:80"  # Adjust ports as necessary
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+    volumes:
+      - type: bind
+        source: ./path/to/local/folder  # Example of binding a local volume if needed
+        target: /app/data  # Example of where to mount the volume inside the container
+
