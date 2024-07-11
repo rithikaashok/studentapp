@@ -8,6 +8,7 @@ namespace ReactAspCRUDBackend.Models
         public int id { get; set; }
         public string stname { get; set; }
         public string course
+        public srting Phnumber
         {
             get; set;
         }
