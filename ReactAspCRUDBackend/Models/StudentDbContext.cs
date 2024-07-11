@@ -12,7 +12,7 @@ namespace ReactAspCrudBackend.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-         optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=school;User Id=rithika;Password=rithika; TrustServerCertificate=True");
+         optionsBuilder.UseSqlServer("Server=SD-40W9NK2-DT\SQLEXPRESS;Database=school;User Id=rithika;Password=rithika; TrustServerCertificate=True");
 
         }
     }
