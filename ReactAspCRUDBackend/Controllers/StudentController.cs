@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ReactAspCrudBackend.Models;
-using ReactAspCRUDBackend.Models;
+using ReactAspCRUDBackend.Models; // Ensure this matches your project namespace
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System.IO;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReactAspCrud.Controllers
+namespace ReactAspCRUDBackend.Controllers // Ensure this matches your project namespace
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -69,7 +68,10 @@ namespace ReactAspCrud.Controllers
             return a;
         }
     }
+}
 
+namespace ReactAspCRUDBackend.Controllers // Ensure this matches your project namespace
+{
     [Route("api/image")]
     [ApiController]
     public class ImageApiController : ControllerBase
