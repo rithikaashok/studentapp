@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ReactAspCrudBackend.Models
+namespace ReactAspCRUDBackend.Models  // Adjusted to match the Student class namespace
 {
     public class StudentDbContext : DbContext
     {
@@ -17,4 +17,5 @@ namespace ReactAspCrudBackend.Models
         }
     }
 }
+
 
