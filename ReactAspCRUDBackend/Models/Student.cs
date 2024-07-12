@@ -1,17 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace ReactAspCRUDBackend.Models
 {
     public class Student
     {
         [Key]
-        public int id { get; set; }
-        public string stname { get; set; }
-        public string course
-        public srting Phnumber
-        {
-            get; set;
-        }
+        public int Id { get; set; }
 
+        public string StName { get; set; }
+
+        public string Course { get; set; }
+
+        public string PhNumber { get; set; }
+
+        // Constructor to initialize non-nullable properties
+        public Student()
+        {
+            StName = "";
+            Course = "";
+            PhNumber = "";
+        }
     }
 }
+
