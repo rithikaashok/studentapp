@@ -9,5 +9,5 @@ services:
       - "80"
       - "443"
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets
-      - ${APPDATA}/ASP.NET/Https
+      - C:\Users\rithika.ab\AppData\Roaming\Microsoft\UserSecrets
+      - C:\Users\rithika.ab\AppData\Roaming\ASP.NET\Https
