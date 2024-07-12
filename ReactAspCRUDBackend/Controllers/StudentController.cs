@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReactAspCrudBackend.Models;
 using ReactAspCRUDBackend.Models;
-
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System.IO;
 using System.Threading.Tasks;
-using System.Web;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ReactAspCrud.Controllers
 {
@@ -30,14 +29,14 @@ namespace ReactAspCrud.Controllers
         [Route("GetStudent")]
         public async Task<IEnumerable<Student>> GetStudents()
         {
-            return await _studentDbContext.Student.ToListAsync();
+            return await _studentDbContext.Students.ToListAsync();
         }
 
         [HttpPost]
         [Route("AddStudent")]
         public async Task<Student> AddStudent(Student objStudent)
         {
-            _studentDbContext.Student.Add(objStudent);
+            _studentDbContext.Students.Add(objStudent);
             await _studentDbContext.SaveChangesAsync();
             return objStudent;
         }
@@ -56,7 +55,7 @@ namespace ReactAspCrud.Controllers
         public bool DeleteStudent(int id)
         {
             bool a = false;
-            var student = _studentDbContext.Student.Find(id);
+            var student = _studentDbContext.Students.Find(id);
             if (student != null)
             {
                 a = true;
@@ -68,14 +67,9 @@ namespace ReactAspCrud.Controllers
                 a = false;
             }
             return a;
-
         }
-          
-
-     
     }
 
-    //My code
     [Route("api/image")]
     [ApiController]
     public class ImageApiController : ControllerBase
@@ -141,10 +135,4 @@ namespace ReactAspCrud.Controllers
             return File(downloadInfo.Content, downloadInfo.ContentType, blobName);
         }
     }
-
-
-
-    //My code
-
-
 }
