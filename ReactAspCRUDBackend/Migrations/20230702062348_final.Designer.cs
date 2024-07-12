@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ReactAspCrudBackend.Models;
+using ReactAspCRUDBackend.Models;
 
 #nullable disable
 
@@ -26,21 +26,25 @@ namespace ReactAspCRUDBackend.Migrations
 
             modelBuilder.Entity("ReactAspCRUDBackend.Models.Student", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("course")
+                    b.Property<string>("Course")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("stname")
+                    b.Property<string>("StName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.Property<string>("PhNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Student");
                 });
@@ -48,3 +52,4 @@ namespace ReactAspCRUDBackend.Migrations
         }
     }
 }
+
