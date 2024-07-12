@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ReactAspCRUDBackend.Models
+namespace ReactAspCrudBackend.Models  // Adjusted to match the StudentDbContext class namespace
 {
     public class Student
     {
@@ -22,4 +22,3 @@ namespace ReactAspCRUDBackend.Models
         }
     }
 }
-
