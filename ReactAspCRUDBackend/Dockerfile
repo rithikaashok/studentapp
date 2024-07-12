@@ -1,25 +1,28 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
+# Use the ASP.NET Core runtime as the base image for the final stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+# Use the SDK image to build the application
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ReactAspCRUDBackend/*.csproj", "ReactAspCRUDBackend/"]
-RUN dotnet restore "ReactAspCRUDBackend/ReactAspCRUDBackend.csproj"
+
+# Copy csproj and restore as distinct layers
+COPY ReactAspCRUDBackend.csproj .
+RUN dotnet restore
+
+# Copy everything else and build the application
 COPY . .
-WORKDIR "/src/ReactAspCRUDBackend"
-RUN dotnet build "ReactAspCRUDBackend.csproj" -c Release -o /app/build
+RUN dotnet build -c Release -o /app/build
 
-FROM build AS publish
-RUN dotnet publish "ReactAspCRUDBackend.csproj" -c Release -o /app/publish /p:UseAppHost=false
+# Publish the application
+RUN dotnet publish -c Release -o /app/publish
 
+# Use the base image for the final stage and copy the published app
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/publish .
+
+# Set the entry point for the container
 ENTRYPOINT ["dotnet", "ReactAspCRUDBackend.dll"]
